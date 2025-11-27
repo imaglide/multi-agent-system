@@ -1,0 +1,29 @@
+# Core dependencies
+asyncio>=3.4.3
+aiohttp>=3.9.0
+
+# AI/LLM (optional - for enhanced agents)
+anthropic>=0.8.0
+
+# Testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.1.0
+
+# Configuration
+python-dotenv>=1.0.0
+
+# Data processing
+numpy>=1.24.0
+pandas>=2.0.0
+
+# Visualization (optional)
+matplotlib>=3.7.0
+
+# Logging
+colorlog>=6.7.0
+
+# Development
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.5.0

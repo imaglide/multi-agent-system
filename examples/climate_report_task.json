@@ -1,0 +1,13 @@
+{
+  "task_id": "climate_report_001",
+  "description": "Write a comprehensive report on climate change with research and analysis",
+  "parameters": {
+    "topic": "climate change impacts on global ecosystems",
+    "content_type": "report",
+    "style": "formal",
+    "needs_research": true,
+    "needs_analysis": true
+  },
+  "priority": 8,
+  "required_capabilities": ["research", "analysis", "writing"]
+}

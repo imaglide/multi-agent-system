@@ -191,15 +191,91 @@ report = await writer_agent.create(trends)
 
 ## 🚀 Getting Started
 
+### Installation
+
 ```bash
+# Clone the repository
+git clone https://github.com/yourusername/multi-agent-system.git
+cd multi-agent-system
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
 # Install dependencies
 pip install -r requirements.txt
 
-# Start the system
-python -m agents.manager --task "complex_task.json"
+# Copy environment template (optional)
+cp .env.example .env
+```
 
-# Monitor agent communication
-python -m communication.monitor
+### Quick Start
+
+```bash
+# Run the demo script
+python examples/demo.py
+```
+
+### Usage in Code
+
+```python
+import asyncio
+from agents.manager.coordinator import ManagerAgent
+from agents.research.gatherer import ResearchAgent
+from agents.writer.creator import WriterAgent
+from agents.analyzer.insights import AnalyzerAgent
+from communication.message_bus import MessageBus
+
+async def main():
+    # Create message bus
+    bus = MessageBus()
+
+    # Create and start agents
+    manager = ManagerAgent(bus)
+    research = ResearchAgent(bus)
+    writer = WriterAgent(bus)
+    analyzer = AnalyzerAgent(bus)
+
+    await manager.start()
+    await research.start()
+    await writer.start()
+    await analyzer.start()
+
+    # Delegate a task
+    result = await manager.delegate_task(
+        description="Research and write about AI ethics",
+        parameters={"topic": "AI ethics"}
+    )
+
+    print(result)
+
+    # Clean up
+    await manager.stop()
+    await research.stop()
+    await writer.stop()
+    await analyzer.stop()
+
+asyncio.run(main())
+```
+
+### Running Tests
+
+```bash
+# Run all tests
+pytest
+
+# Run with coverage
+pytest --cov=. --cov-report=html
+
+# Run specific test file
+pytest tests/test_collaboration.py
+```
+
+### Jupyter Notebook Demo
+
+```bash
+# Start Jupyter
+jupyter notebook notebooks/demo.ipynb
 ```
 
 ## 🎯 Use Cases
